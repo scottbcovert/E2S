@@ -176,6 +176,8 @@ global class emailParser implements Messaging.InboundEmailHandler {
                 //Define new record         
                 Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe();
                 Schema.SObjectType oType = gd.get(relevantRule.Object_API_Name__c);
+                map<String, Schema.SObjectField> mapFieldList = oType.getDescribe().fields.getMap();
+                Schema.DisplayType fieldType;
                 SObject newRecord = oType.newSObject();
                 list<Attachment> aList = new list<Attachment>();            
                 
@@ -200,6 +202,14 @@ global class emailParser implements Messaging.InboundEmailHandler {
                                 max = apiNames.size();
                             }
                             for (Integer i=0; i < max; i++){
+                                //Remove non-numeric characters with RegEx for number fields
+                                fieldType = mapFieldList.get(apiNames[i]).getDescribe().getType();
+                                if (fieldType==Schema.DisplayType.Integer) {
+                                    dataValues[i] = dataValues[i].replaceAll('[^\\d-]','');
+                                }
+                                else if (fieldType==Schema.DisplayType.Double || fieldType==Schema.DisplayType.Currency) {
+                                    dataValues[i] = dataValues[i].replaceAll('[^\\d.-]','');
+                                }
                                 //Store data in corresponding field
                                 newRecord.put(apiNames[i],dataValues[i]);
                             }       
@@ -207,11 +217,28 @@ global class emailParser implements Messaging.InboundEmailHandler {
                         else{
                             //No spaces found-copying data value to all fields
                             for (String fieldName : apiNames){
+                                //Remove non-numeric characters with RegEx for number fields
+                                fieldType = mapFieldList.get(fieldName).getDescribe().getType();
+                                if (fieldType==Schema.DisplayType.Integer) {
+                                    dataValue = dataValue.replaceAll('[^\\d-]','');
+                                }
+                                else if (fieldType==Schema.DisplayType.Double || fieldType==Schema.DisplayType.Currency) {
+                                    dataValue = dataValue.replaceAll('[^\\d.-]','');
+                                }
+                                //Store data in corresponding field
                                 newRecord.put(fieldName,dataValue);
                             }
                         }
                     }                   
                     else{
+                        //Remove non-numeric characters with RegEx for number fields
+                        fieldType = mapFieldList.get(rfm.Salesforce_Field__c).getDescribe().getType();
+                        if (fieldType==Schema.DisplayType.Integer) {
+                            dataValue = dataValue.replaceAll('[^\\d-]','');
+                        }
+                        else if (fieldType==Schema.DisplayType.Double || fieldType==Schema.DisplayType.Currency) {
+                            dataValue = dataValue.replaceAll('[^\\d.-]','');
+                        }
                         //Store data in corresponding field
                         newRecord.put(rfm.Salesforce_Field__c,dataValue);
                     }
