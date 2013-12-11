@@ -16,24 +16,28 @@
     </fields>
     <fields>
         <fullName>Error_Email_Address__c</fullName>
+        <defaultValue></defaultValue>
         <deprecated>false</deprecated>
         <description>The email address(es) that will be notified in the event of an error in the email to Salesforce conversion</description>
         <externalId>false</externalId>
         <inlineHelpText>Enter the email address(es) that should be notified if an error occurs during the email to Salesforce conversion-separate multiple addresses with a semicolon</inlineHelpText>
         <label>Error Email Address</label>
+        <length>255</length>
         <required>false</required>
-        <type>Email</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Forwarding_Email_Address__c</fullName>
+        <defaultValue></defaultValue>
         <deprecated>false</deprecated>
         <description>The email address(es) that the original email will be forwarded to upon conversion to Salesforce</description>
         <externalId>false</externalId>
         <inlineHelpText>Enter the email address(es) that the original email should be forwarded to upon conversion to Salesforce conversion-separate multiple addresses with a semicolon and leave blank if not required</inlineHelpText>
         <label>Forwarding Email Address</label>
+        <length>255</length>
         <required>false</required>
-        <type>Email</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
