@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>Field mappings for E2S</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Closing_Tag__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The text immediately following the data being captured from the email for this field mapping</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the text immediately following the data being captured from the email for this field mapping-leave blank for line breaks</inlineHelpText>
+        <label>Closing Tag</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Corresponding_E2S_Rule__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Corresponding E2S rule for this field mapping</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the name of the corresponding E2S rule for this field mapping</inlineHelpText>
+        <label>Corresponding E2S Rule</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Create_Attachment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines if an attachment should be created that contains the data of this field mapping</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if an attachment should be created that contains the data of this field mapping</inlineHelpText>
+        <label>Create Attachment</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opening_Tag__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Opening tag for data being captured from email for this field mapping</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the text immediately preceding the data being captured from the email for this field mapping, e.g., Name:</inlineHelpText>
+        <label>Opening Tag</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Salesforce_Field__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API name of the Salesforce field(s) that will store the data being captured for this field mapping</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the API name(s) of the Salesforce field(s) that will store the data being captured for this field mapping-for space delimited data being stored in multiple fields separate the API names with a semicolon</inlineHelpText>
+        <label>Salesforce Field(s)</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Use_Line_Break_for_Closing_Tag__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines if a line break should be used as the closing tag following data being captured from the email for this field mapping</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check if you would like to use a line break as the closing tag following data being captured from the email for this field mapping</inlineHelpText>
+        <label>Use Line Break for Closing Tag</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>E2S - Field Mappings</label>
+</CustomObject>

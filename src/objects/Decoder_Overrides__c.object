@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>Sometimes unwanted characters (e.g., *) still remain after email decoding. Use this setting to specify these unwanted characters so E2S will strip them from the decoded email.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Corresponding_E2S_Rule__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Corresponding E2S rule for this decoder override</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the name of the corresponding E2S rule for this decoder override</inlineHelpText>
+        <label>Corresponding E2S Rule</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Substitute_Character__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The character that should be used to substitute stripped character(s) from a decoded email</description>
+        <externalId>false</externalId>
+        <inlineHelpText>[Optional] Specify the character(s) that should replace the stripped character(s) from a decoded email; if left blank the stripped character(s) will only be removed.</inlineHelpText>
+        <label>Substitute Character</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unwanted_Character__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The character that should be stripped from a decoded email</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the character (e.g., *) that should be stripped from a decoded email</inlineHelpText>
+        <label>Unwanted Character(s)</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>E2S - Decoder Overrides</label>
+</CustomObject>
