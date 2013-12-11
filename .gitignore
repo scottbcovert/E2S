@@ -42,6 +42,10 @@ salesforce.schema
 package.xml
 
 # Eclipse generated files #
-######################
+###########################
 .project
 .settings
+
+# Exclusions #
+##############
+!LICENSE*
