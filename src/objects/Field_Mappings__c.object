@@ -13,6 +13,7 @@
         <label>Closing Tag</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -25,6 +26,7 @@
         <label>Corresponding E2S Rule</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -36,6 +38,7 @@
         <externalId>false</externalId>
         <inlineHelpText>Check if an attachment should be created that contains the data of this field mapping</inlineHelpText>
         <label>Create Attachment</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -47,6 +50,7 @@
         <label>Opening Tag</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -59,6 +63,7 @@
         <label>Salesforce Field(s)</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -70,6 +75,7 @@
         <externalId>false</externalId>
         <inlineHelpText>Check if you would like to use a line break as the closing tag following data being captured from the email for this field mapping</inlineHelpText>
         <label>Use Line Break for Closing Tag</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <label>E2S - Field Mappings</label>

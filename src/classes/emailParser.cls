@@ -162,7 +162,7 @@ global class emailParser implements Messaging.InboundEmailHandler {
                 }
                 
                 //Add line break to EOF
-                emailBody = emailBody + '\n';
+                emailBody = emailBody + '[EOF]' + '\n';
             
                 //Find all field mappings that correspond to the relevant object rule
                 List<Field_Mappings__c> relevantFieldMappings = new List<Field_Mappings__c>();
@@ -189,6 +189,10 @@ global class emailParser implements Messaging.InboundEmailHandler {
                     }                   
                     else{
                         dataValue = emailBody.substringBetween(rfm.Opening_Tag__c,rfm.Closing_Tag__c); 
+                    }
+                    //Add special case for mapping email subject
+                    if (rfm.Opening_Tag__c.toLowercase()=='email subject:'){
+                        dataValue = email.Subject;
                     }                   
                     if (rfm.Salesforce_Field__c.contains(';')){
                         list<String> apiNames = rfm.Salesforce_Field__c.split(';');
@@ -252,8 +256,15 @@ global class emailParser implements Messaging.InboundEmailHandler {
                     }
                 }
                 
-                //Verify LeadSource is defined if applicable
-                if (relevantRule.Object_API_Name__c=='Lead'){
+                //Verify Source is defined if applicable
+                if (relevantRule.Object_Source_Field_API_Name__c!=null){
+                    if (newRecord.get(relevantRule.Object_Source_Field_API_Name__c)==null || newRecord.get(relevantRule.Object_Source_Field_API_Name__c)==''){
+                        //Source field is currently blank or null, populate with relevant E2S rule name
+                        newRecord.put(relevantRule.Object_Source_Field_API_Name__c,relevantRule.Name);
+                    }
+                }
+                else if (relevantRule.Object_API_Name__c=='Lead'){
+                    //Automatically use LeadSource field if rule is set up for the Lead object
                     if (newRecord.get('LeadSource')==null || newRecord.get('LeadSource')==''){
                         //LeadSource is currently blank or null, populate with relevant E2S rule name
                         newRecord.put('LeadSource',relevantRule.Name);
@@ -434,7 +445,7 @@ global class emailParser implements Messaging.InboundEmailHandler {
         email.Subject = 'Test Lead';
         email.FromName = 'FirstName LastName';          
         email.plainTextBody = '';
-        email.htmlBody = '*Name:* FirstName LastName *Company:* XYZ *Email:* someaddress@email.com';
+        email.htmlBody = '*Name:* FirstName LastName *Company:* XYZ *Email:* someaddress@email.com\n';
         env.fromAddress = 'someaddress@email.com';
  
         //Call the emailParser class and test it

@@ -12,32 +12,31 @@
         <externalId>false</externalId>
         <inlineHelpText>Check if you would like to use this rule for any emails sent from an unknown source</inlineHelpText>
         <label>Default Rule?</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Error_Email_Address__c</fullName>
-        <defaultValue></defaultValue>
         <deprecated>false</deprecated>
         <description>The email address(es) that will be notified in the event of an error in the email to Salesforce conversion</description>
         <externalId>false</externalId>
         <inlineHelpText>Enter the email address(es) that should be notified if an error occurs during the email to Salesforce conversion-separate multiple addresses with a semicolon</inlineHelpText>
         <label>Error Email Address</label>
-        <length>255</length>
         <required>false</required>
-        <type>Text</type>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Forwarding_Email_Address__c</fullName>
-        <defaultValue></defaultValue>
         <deprecated>false</deprecated>
         <description>The email address(es) that the original email will be forwarded to upon conversion to Salesforce</description>
         <externalId>false</externalId>
         <inlineHelpText>Enter the email address(es) that the original email should be forwarded to upon conversion to Salesforce conversion-separate multiple addresses with a semicolon and leave blank if not required</inlineHelpText>
         <label>Forwarding Email Address</label>
-        <length>255</length>
         <required>false</required>
-        <type>Text</type>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -48,6 +47,7 @@
         <externalId>false</externalId>
         <inlineHelpText>Check if you would like to notify the 3rd party that a Salesforce record has been created on their behalf-to use this feature you MUST enter a value in the 3rd Party Email Field setting</inlineHelpText>
         <label>Notify 3rd Party</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -58,18 +58,33 @@
         <externalId>false</externalId>
         <inlineHelpText>Check if you would like to notify the record owner after the email to Salesforce conversion</inlineHelpText>
         <label>Notify Record Owner</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Object_API_Name__c</fullName>
         <defaultValue>&quot;Lead&quot;</defaultValue>
         <deprecated>false</deprecated>
-        <description>API name of th rule&apos;s corrresponding object</description>
+        <description>API name of the rule&apos;s corrresponding object</description>
         <externalId>false</externalId>
         <inlineHelpText>Enter the API name of the object for which this rule is being created</inlineHelpText>
         <label>Object API Name</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object_Source_Field_API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API name of a source field for the rule&apos;s corrresponding object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the API name of a source field (if one exists) for the rule&apos;s corresponding object</inlineHelpText>
+        <label>Object Source Field API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -81,6 +96,7 @@
         <inlineHelpText>Enter the sender address of incoming emails</inlineHelpText>
         <label>Sender Email Address</label>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>true</unique>
     </fields>
@@ -93,6 +109,7 @@
         <label>3rd Party Email Field</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

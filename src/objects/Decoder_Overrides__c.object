@@ -13,6 +13,7 @@
         <label>Corresponding E2S Rule</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -25,6 +26,7 @@
         <label>Substitute Character</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -37,6 +39,7 @@
         <label>Unwanted Character(s)</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
