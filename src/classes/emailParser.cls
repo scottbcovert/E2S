@@ -276,12 +276,12 @@ global class emailParser implements Messaging.InboundEmailHandler {
                 
                 //Try to create attachments of email body and data values
                 try{
-                    Attachment a = new Attachment();
-                    a.Name = email.Subject;
-                    a.Body = Blob.valueOf(emailBody);
-                    a.ContentType = 'text/plain';
-                    a.ParentId = newRecord.Id;
-                    insert a;
+                    insert new Attachment(
+                        Name = email.Subject,
+                        Body = Blob.valueOf(emailBody),
+                        ContentType = 'text/plain',
+                        ParentId = newRecord.Id
+                    );
                     if (!aList.isEmpty()){
                         for (Attachment theAttachment : aList){
                             theAttachment.ParentId = newRecord.Id;
